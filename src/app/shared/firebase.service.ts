@@ -23,7 +23,7 @@ export class FirebaseService {
     return this.httpClient.get('https://cookbook-a8f78.firebaseio.com/recepies.json')
       .map(
         (response: Response) => {
-          const recepies: Recepie[] = response.json();
+          const recepies: any = response;
           for (const recepie of recepies) {
             if (!recepie['ingredients']) {
               console.log(recepie);
