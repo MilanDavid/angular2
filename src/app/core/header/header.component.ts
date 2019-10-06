@@ -17,8 +17,7 @@ export class HeaderComponent {
   onSave() {
     this.firebase.saveRecepie().subscribe(
       (response: Response) => console.log(response),
-      (error) => console.log('Something went wrong :(')
-    );
+      (error) => console.log('Something went wrong :('));
   }
 
   getData() {
