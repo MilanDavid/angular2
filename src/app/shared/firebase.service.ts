@@ -1,16 +1,16 @@
-import {Injectable} from '@angular/core';
-import {Response} from '@angular/http';
-import {RecepieService} from '../recepies/recepies.service';
-import {Recepie} from '../recepies/recepie.model';
-import 'rxjs/Rx';
-import {AuthService} from '../auth/auth.service';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Response } from '@angular/http';
+import { RecepieService } from '../recepies/recepies.service';
+import { Recepie } from '../recepies/recepie.model';
+import 'rxjs-compat/add/operator/map';
+import { AuthService } from '../auth/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class FirebaseService {
   constructor(private httpClient: HttpClient,
-              private recepieService: RecepieService,
-              private authService: AuthService) {}
+    private recepieService: RecepieService,
+    private authService: AuthService) { }
 
   saveRecepie() {
     const token = this.authService.getToken();
@@ -34,12 +34,12 @@ export class FirebaseService {
         }
       )
       .subscribe(
-      (recepies: Recepie[]) => {
-        const recepiesData: Recepie[] = recepies;
-        this.recepieService.setRecepies(recepiesData);
-        console.log(recepiesData);
-      }
-    )
+        (recepies: Recepie[]) => {
+          const recepiesData: Recepie[] = recepies;
+          this.recepieService.setRecepies(recepiesData);
+          console.log(recepiesData);
+        }
+      )
   }
 
 }

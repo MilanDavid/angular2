@@ -8,7 +8,7 @@ import {AuthGuardService} from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent },
-  {path: 'recepies', loadChildren: './recepies/recepies.module#RecepiesModule'}, // canLoad: [AuthGuardService] },
+  {path: 'recepies', loadChildren: () => import('./recepies/recepies.module').then(m => m.RecepiesModule)},
   {path: 'shopping-list', component: ShoppingListComponent}
 ];
 

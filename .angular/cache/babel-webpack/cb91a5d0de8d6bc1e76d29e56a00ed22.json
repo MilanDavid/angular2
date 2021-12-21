@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Recepie {\n  constructor(name, desc, imagePath, ingredients) {\n    this.name = name;\n    this.description = desc;\n    this.imagePath = imagePath;\n    this.ingredients = ingredients;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

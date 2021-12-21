@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import * as firebase from 'firebase';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -9,20 +9,20 @@ export class AuthService {
   constructor(private router: Router) { }
 
   signupUser(email: string, password: string) {
-    firebase.auth()
-      .createUserWithEmailAndPassword(email, password)
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
       .catch(
         (error) => console.log(error)
       );
   }
 
   signinUser(email: string, password: string) {
-    firebase.auth()
-      .signInWithEmailAndPassword(email, password)
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
       .then(
         response => {
           this.router.navigate(['/']);
-          firebase.auth().currentUser.getIdToken().then(
+          auth.currentUser.getIdToken().then(
             (token: string) => this.token = token
           );
           console.log(response)
@@ -34,7 +34,8 @@ export class AuthService {
   }
 
   getToken() {
-    firebase.auth().currentUser.getIdToken()
+    const auth = getAuth();
+    auth.currentUser.getIdToken()
       .then(
         (token: string) => this.token = token
       );
@@ -46,7 +47,8 @@ export class AuthService {
   }
 
   logout() {
-    firebase.auth().signOut();
+    const auth = getAuth();
+    auth.signOut();
     this.token = null;
   }
 

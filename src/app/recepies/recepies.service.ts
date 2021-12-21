@@ -1,6 +1,6 @@
-import {Recepie} from './recepie.model';
-import {Subject} from 'rxjs/Subject';
-import {Ingredient} from '../shared/ingredient.model';
+import { Recepie } from './recepie.model';
+import { Subject } from 'rxjs-compat/Subject';
+import { Ingredient } from '../shared/ingredient.model';
 
 export class RecepieService {
   recepiesChanged = new Subject<Recepie[]>();
@@ -9,15 +9,15 @@ export class RecepieService {
     new Recepie('Cheesecake',
       'Sweet vanila cake!',
       'https://www.thecheesecakefactory.com/assets/images/Menu-Import/CCF_FreshStrawberryCheesecake.jpg', [
-        new Ingredient('Cheese', 1),
-        new Ingredient('Sugar', 1)
-      ]),
+      new Ingredient('Cheese', 1),
+      new Ingredient('Sugar', 1)
+    ]),
     new Recepie('Chockolate Cake',
       'Cake made of chockolate',
       'http://ichef.bbci.co.uk/food/ic/food_16x9_448/recipes/easy_chocolate_cake_31070_16x9.jpg', [
-        new Ingredient('Chocolate', 3),
-        new Ingredient('Cherry', 1)
-      ])
+      new Ingredient('Chocolate', 3),
+      new Ingredient('Cherry', 1)
+    ])
   ];
 
   setRecepies(recepies: Recepie[]) {

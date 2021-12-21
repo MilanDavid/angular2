@@ -4,11 +4,11 @@ import { AppComponent } from './app.component';
 import { AppRouteingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingModule } from './shopping-list/shopping.module';
-import {AuthModule} from './auth/auth.module';
-import {CoreModule} from './core/core.module';
-import {AuthGuardService} from './auth/auth-guard.service';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
+import { CoreModule } from './core/core.module';
+import { AuthGuardService } from './auth/auth-guard.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [

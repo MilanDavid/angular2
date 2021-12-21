@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {Response} from '@angular/http';
-import 'rxjs/Rx';
 import {FirebaseService} from '../../shared/firebase.service';
 import {AuthService} from '../../auth/auth.service';
 
